@@ -1,3 +1,4 @@
 #!/bin/sh
 export FLASK_APP=./cashman/index.py
-python3 -m pipenv run flask --debug run -h 0.0.0.0
+cd cashman
+python3 -m gunicorn --bind 0.0.0.0:5000 wsgi:app
